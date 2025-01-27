@@ -20,14 +20,14 @@ pipeline {
                     def nodeHome = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
                     env.PATH = "${nodeHome}/bin:${env.PATH}"
                 }
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Run Cypress Tests') {
             steps {
                 // Uruchom testy Cypress
-                sh 'npx cypress run'
+                bat 'npx cypress run'
             }
         }
 
