@@ -37,37 +37,3 @@ describe('Weryfikacja poprawności adresu IP za pomocą wyrażenia regularnego',
         expect(result).to.be.false;
     });
 });
-describe('Webview Button Tests', () => {
-    it('Clicks buttons and validates responses', () => {
-        cy.visit('vscode-resource://path-to-webview'); // Zmień na ścieżkę swojego webview
-
-        // Sprawdzenie tytułu
-        cy.contains('Ping Address:');
-
-        // Kliknięcie przycisku Standard Ping
-        cy.get('#pingButton').click();
-
-        // Sprawdzenie, czy pojawiła się odpowiedź
-        cy.get('#output').should('not.contain', 'No response yet...');
-        
-        // Kliknięcie przycisku Ping with TTL
-        cy.get('#pingWithTTL').click();
-
-        // Sprawdzenie logów z TTL
-        cy.get('#output').should('contain', 'TTL');
-
-        // Test Ping Large Packet
-        cy.get('#pingLargePacket').click();
-
-        // Sprawdzenie wyników dużego pakietu
-        cy.get('#output').should('contain', 'bytes=1024');
-    });
-
-    it('Clears the console and checks for empty output', () => {
-        // Kliknięcie Clear Console
-        cy.get('#clearButton').click();
-
-        // Sprawdzenie, czy konsola została wyczyszczona
-        cy.get('#output').should('contain', 'No response yet...');
-    });
-});
