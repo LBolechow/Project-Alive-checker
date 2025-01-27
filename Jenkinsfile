@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODE_VERSION = '16' 
+        NODE_VERSION = '16' // Wersja Node.js do użycia
     }
 
     stages {
@@ -20,14 +20,14 @@ pipeline {
                     def nodeHome = tool name: 'NodeJS', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
                     env.PATH = "${nodeHome}/bin:${env.PATH}"
                 }
-                bat 'C:\\Program Files\\Git\\bin\\sh.exe -c "npm install"'
+                sh 'npm install'
             }
         }
 
         stage('Run Cypress Tests') {
             steps {
                 // Uruchom testy Cypress
-                bat 'C:\\Program Files\\Git\\bin\\sh.exe -c "npx cypress run"'
+                sh 'npx cypress run'
             }
         }
 
