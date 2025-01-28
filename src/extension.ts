@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import * as childProcess from 'child_process';
 
-
+//123
 export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('alive-checker.pingIp', async () => {
         const ipAddress = await vscode.window.showInputBox({
