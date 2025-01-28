@@ -1,8 +1,6 @@
 import * as vscode from 'vscode';
 import * as childProcess from 'child_process';
 
-//212.77.100.101
-// degram
 
 export function activate(context: vscode.ExtensionContext) {
     const disposable = vscode.commands.registerCommand('alive-checker.pingIp', async () => {
